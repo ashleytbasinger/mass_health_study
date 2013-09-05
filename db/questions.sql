@@ -1,0 +1,12 @@
+--I made a comment! Boom!
+
+--What 3 towns have the highest population of citizens that are 65 years and older?
+    --select top three from row[3] (sorted in descending order)
+--What 3 towns have the highest population of citizens that are 19 years and younger?
+    --select top three from row[2] (sorted in descending order)
+--What 5 towns have the lowest per capita income?
+    --select top five towns from row[4] (sorted in ascending order)
+--Omitting Boston, Becket, and Beverly, what town has the highest percentage of teen births?
+    --except for Boston, Becket, and Beverly, select top result (descending order)
+--Omitting Boston, what town has the highest number of infant mortalities?
+    --except for Boston, select top result (descending order)
