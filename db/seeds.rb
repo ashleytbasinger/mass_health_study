@@ -7,20 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require "csv"
 
-CSV.foreach("db/data") do |row|
+CSV.foreach("db/data", headers: true) do |row|
   town_name = row[0]
-  population_over_65 = row[3]
+  population_over_age_65 = row[3]
   population_under_19 = row[2]
-  per_capita_income = row[4]
+  per_capita_income = row[4].gsub(/[^0-9]/, '').to_i
   percentage_teen_births = row[14]
   infant_mortalities = row[9]
   record = TownHealthRecord.new
   record.town_name = town_name
-  record.population_over_65 = population_over_65
+  record.population_over_age_65 = population_over_age_65.gsub(/,/, '')
   record.population_under_19 = population_under_19
   record.per_capita_income = per_capita_income
   record.percentage_teen_births = percentage_teen_births
   record.infant_mortalities = infant_mortalities
+  
+  # if record.nil?
+  #   record = TownHealthRecord.new(row)
+  # else
+  #   record.row = row
+  # end
+
   record.save
 end
 
