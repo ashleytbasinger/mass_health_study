@@ -22,11 +22,11 @@ CSV.foreach("db/data", headers: true) do |row|
   record.percentage_teen_births = percentage_teen_births
   record.infant_mortalities = infant_mortalities
   
-  # if record.nil?
-  #   record = TownHealthRecord.new(row)
-  # else
-  #   record.row = row
-  # end
+  if record.nil?
+    record = TownHealthRecord.new
+  else
+    record
+  end
 
   record.save
 end
